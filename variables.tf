@@ -5,8 +5,6 @@ variable "project_environment" {
 }
 
 variable "ami_instance" {
-  type = string
-  default = "ami-0fb653ca2d3203ac1"
 }
 
 variable "instance_type" {
