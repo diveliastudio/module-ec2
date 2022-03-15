@@ -29,6 +29,12 @@ module "ec2_instance" {
 | sg_ports_in | Port list for ingress rules | `list(number)` | `[22, 80, 443]` | no |
 | sg_ports_out | Port list for egress rules | `list(number)` | `[0]` | no |
 
+## Outputs
+| Name | Description|
+|------|:--------:|
+| security_group_id | The ID of the security group |
+
+
 ## Resources that return
 
 | Extension | Folder | Description |
