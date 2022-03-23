@@ -26,6 +26,7 @@ module "ec2_instance" {
 | project_environment | Project environment | `string` | `""` | yes |
 | ami_instance | ID of AMI to use for the instance | `string` | `""` | yes |
 | instance_type | The type of instance to start | `string` | `"t2.micro"` | no |
+| volume_size | Size of the volume in gibibytes (GiB) | `number` | `15` | no |
 | sg_ports_in | Port list for ingress rules | `list(number)` | `[22, 80, 443]` | no |
 | sg_ports_out | Port list for egress rules | `list(number)` | `[0]` | no |
 

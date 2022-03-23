@@ -12,6 +12,11 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+variable "volume_size" {
+  type = number
+  default = 15
+}
+
 variable "sg_ports_in" {
   type = list(number)
   default = [22, 80, 443]
