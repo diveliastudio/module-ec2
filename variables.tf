@@ -26,3 +26,23 @@ variable "sg_ports_out" {
   type = list(number)
   default = [0]
 }
+
+variable "cloudwatch_period_check_minutes" {
+  type = number
+  default = 15
+}
+
+variable "cpu_utilization_evaluation_periods" {
+  type = number
+  default = 2
+}
+
+variable "cloudwatch_threshold_cpu_utilization" {
+  type = number
+  default = 95
+}
+
+variable "status_check_failed_evaluation_periods" {
+  type = number
+  default = 1
+}
