@@ -5,7 +5,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization" {
   metric_name = "CPUUtilization"
   statistic = "Average"
 
-  evaluation_periods = var.cloudwatch_evaluation_periods
+  evaluation_periods = var.cpu_utilization_evaluation_periods
   period = "${var.cloudwatch_period_check_minutes * 60}"
   threshold = var.cloudwatch_threshold_cpu_utilization
 
@@ -33,7 +33,7 @@ resource "aws_cloudwatch_metric_alarm" "status_check_failed" {
   metric_name = "StatusCheckFailed"
   statistic = "Average"
 
-  evaluation_periods = var.cloudwatch_evaluation_periods
+  evaluation_periods = var.status_check_failed_evaluation_periods
   period = "${var.cloudwatch_period_check_minutes * 60}"
   threshold = "1"
 

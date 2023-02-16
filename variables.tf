@@ -32,7 +32,7 @@ variable "cloudwatch_period_check_minutes" {
   default = 15
 }
 
-variable "cloudwatch_evaluation_periods" {
+variable "cpu_utilization_evaluation_periods" {
   type = number
   default = 2
 }
@@ -40,4 +40,9 @@ variable "cloudwatch_evaluation_periods" {
 variable "cloudwatch_threshold_cpu_utilization" {
   type = number
   default = 95
+}
+
+variable "status_check_failed_evaluation_periods" {
+  type = number
+  default = 1
 }

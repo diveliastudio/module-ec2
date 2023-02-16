@@ -30,8 +30,9 @@ module "ec2_instance" {
 | sg_ports_in | Port list for ingress rules | `list(number)` | `[22, 80, 443]` | no |
 | sg_ports_out | Port list for egress rules | `list(number)` | `[0]` | no |
 | cloudwatch_period_check_minutes | Statistics review period in minutes | `number` | `15` | no |
-| cloudwatch_evaluation_periods | Number of periods needed for alarm activation | `number` | `2` | no |
 | cloudwatch_threshold_cpu_utilization | CPU usage for alarm activation | `number` | `95` | no |
+| cpu_utilization_evaluation_periods | Number of periods needed for alarm activation per cpu_utilization | `number` | `2` | no |
+| status_check_failed_evaluation_periods | Number of periods needed for alarm activation per status_check_failed | `number` | `1` | no |
 
 ## Outputs
 | Name | Description|
