@@ -1,4 +1,6 @@
 resource "aws_cloudwatch_metric_alarm" "cpu_utilization" {
+  count = var.use_cloudwatch_alarms ? 1 : 0
+
   alarm_name = "${var.project_name}-${var.project_environment}-RebootInstanceCPUAbove${var.cloudwatch_threshold_cpu_utilization}PercentageForMore${var.cloudwatch_period_check_minutes}Min"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   namespace = "AWS/EC2"
@@ -17,7 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization" {
 
   alarm_actions = [
       "arn:aws:automate:${data.aws_region.current.name}:ec2:reboot"
-   ]
+  ]
 
   tags = {
     Name = "${var.project_name}-${var.project_environment}-CPUUtilization-CloudWatch",
@@ -27,6 +29,8 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "status_check_failed" {
+  count = var.use_cloudwatch_alarms ? 1 : 0
+
   alarm_name = "${var.project_name}-${var.project_environment}-RebootInstanceStatusCheckFailedForMore${var.cloudwatch_period_check_minutes}Min"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   namespace = "AWS/EC2"
@@ -45,7 +49,7 @@ resource "aws_cloudwatch_metric_alarm" "status_check_failed" {
 
   alarm_actions = [
       "arn:aws:automate:${data.aws_region.current.name}:ec2:reboot"
-   ]
+  ]
 
   tags = {
     Name = "${var.project_name}-${var.project_environment}-StatusCheckFailed-CloudWatch"

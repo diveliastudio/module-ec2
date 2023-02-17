@@ -11,10 +11,11 @@ provider "aws" {
 ...
 
 module "ec2_instance" {
-  source  = "github.com/diveliastudio/module-ec2"
+  source  = "github.com/diveliastudio/module-ec2?ref=v0.0.2"
   project_name = "project"
   project_environment = "develop"
   ami_instance = "ami-0fb653ca2d3203ac1"
+  use_cloudwatch_alarms = true
 }
 ```
 
@@ -25,6 +26,7 @@ module "ec2_instance" {
 | project_name | Project's name | `string` | `""` | yes |
 | project_environment | Project environment | `string` | `""` | yes |
 | ami_instance | ID of AMI to use for the instance | `string` | `""` | yes |
+| use_cloudwatch_alarms | Using cloudwatch alarms | `bool`  | `true` | no |
 | instance_type | The type of instance to start | `string` | `"t2.micro"` | no |
 | volume_size | Size of the volume in gibibytes (GiB) | `number` | `15` | no |
 | sg_ports_in | Port list for ingress rules | `list(number)` | `[22, 80, 443]` | no |
@@ -32,7 +34,7 @@ module "ec2_instance" {
 | cloudwatch_period_check_minutes | Statistics review period in minutes | `number` | `15` | no |
 | cloudwatch_threshold_cpu_utilization | CPU usage for alarm activation | `number` | `95` | no |
 | cpu_utilization_evaluation_periods | Number of periods needed for alarm activation per cpu_utilization | `number` | `2` | no |
-| status_check_failed_evaluation_periods | Number of periods needed for alarm activation per status_check_failed | `number` | `1` | no |
+| status_check_failed_evaluation_periods | Number of periods needed for alarm activation per status_check_failed | `number` | `0.99` | no |
 
 ## Outputs
 | Name | Description|

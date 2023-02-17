@@ -27,6 +27,11 @@ variable "sg_ports_out" {
   default = [0]
 }
 
+variable "use_cloudwatch_alarms" {
+  type = bool
+  default = true
+}
+
 variable "cloudwatch_period_check_minutes" {
   type = number
   default = 15
